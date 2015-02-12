@@ -1,1 +1,3 @@
-README
+スクリーンショット
+
+![screenshot](screenshot.gif)

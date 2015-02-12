@@ -23,8 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = CATEGORIES.firstObject;
-    
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
     [self createArticleScrollView];
