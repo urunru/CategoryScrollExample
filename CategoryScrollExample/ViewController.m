@@ -8,9 +8,8 @@
 
 #import "ViewController.h"
 
-#define NUMBER_OF_CATEGORY 5
 #define CATEGORY_BAR_HEIGHT 30
-#define CATEGORIES @[@"0", @"1", @"2", @"3", @"4"]
+#define CATEGORIES @[@"0", @"1", @"2"]
 
 @interface ViewController ()
 
@@ -46,7 +45,7 @@
     self.categoryScrollView = [[UIScrollView alloc] init];
     self.categoryScrollView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 0);
     self.categoryScrollView.backgroundColor = [UIColor lightGrayColor];
-    self.categoryScrollView.contentSize = CGSizeMake(CATEGORY_WIDTH * NUMBER_OF_CATEGORY, CATEGORY_HEIGHT);
+    self.categoryScrollView.contentSize = CGSizeMake(CATEGORY_WIDTH * CATEGORIES.count, CATEGORY_HEIGHT);
     self.categoryScrollView.pagingEnabled = YES;
     self.categoryScrollView.clipsToBounds = NO;
     self.categoryScrollView.bounds = CGRectMake(0.0f, 0.0f, CATEGORY_WIDTH, 0);
@@ -59,7 +58,7 @@
     [self.view addSubview:horizontal];
     
     // テーブルをカテゴリの数だけ追加
-    for (int i=0; i < NUMBER_OF_CATEGORY; i++) {
+    for (int i=0; i < CATEGORIES.count; i++) {
         UILabel *label = [[UILabel alloc] init];
         label.frame = CGRectMake(CATEGORY_WIDTH * i, 0, CATEGORY_WIDTH, CATEGORY_HEIGHT);
         label.text = CATEGORIES[i];
@@ -73,7 +72,7 @@
     CGRect tableBounds = CGRectMake(0.0f, CATEGORY_BAR_HEIGHT, TABLE_WIDTH, TABLE_HEIGHT - [UIApplication sharedApplication].statusBarFrame.size.height - self.navigationController.navigationBar.frame.size.height - CATEGORY_BAR_HEIGHT);
     
     self.tableScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    self.tableScrollView.contentSize = CGSizeMake(TABLE_WIDTH * NUMBER_OF_CATEGORY, TABLE_HEIGHT);
+    self.tableScrollView.contentSize = CGSizeMake(TABLE_WIDTH * CATEGORIES.count, TABLE_HEIGHT);
     self.tableScrollView.pagingEnabled = YES;
     self.tableScrollView.clipsToBounds = NO;
     self.tableScrollView.delegate = self;
@@ -83,7 +82,7 @@
     // UITableView をUIScrollView に追加
     CGRect tableFrame = tableBounds;
     tableFrame.origin.x = 0.0f;
-    for (int i = 0; i < NUMBER_OF_CATEGORY; i++) {
+    for (int i = 0; i < CATEGORIES.count; i++) {
         UITableView *tableView = [[UITableView alloc] initWithFrame:tableFrame style:UITableViewStylePlain];
         tableView.tag = i;
         tableView.delegate = self;
