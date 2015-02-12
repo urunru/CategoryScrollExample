@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 #define CATEGORY_BAR_HEIGHT 30
-#define CATEGORIES @[@"0", @"1", @"2"]
+#define CATEGORIES @[@"ニュース", @"エンタメ", @"グルメ"]
 
 @interface ViewController ()
 
