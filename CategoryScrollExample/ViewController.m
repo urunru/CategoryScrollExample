@@ -25,7 +25,7 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
-    [self createArticleScrollView]; // テーブルのスクロールビューを作成
+    [self createTableScrollView]; // テーブルのスクロールビューを作成
     
     [self createCategoryScrollView]; // カテゴリーのスクロールビューを作成
 }
@@ -66,7 +66,7 @@
     }
 }
 
-- (void) createArticleScrollView{
+- (void) createTableScrollView{
     CGFloat TABLE_WIDTH = self.view.frame.size.width;
     CGFloat TABLE_HEIGHT = self.view.bounds.size.height;
     CGRect tableBounds = CGRectMake(0.0f, CATEGORY_BAR_HEIGHT, TABLE_WIDTH, TABLE_HEIGHT - [UIApplication sharedApplication].statusBarFrame.size.height - self.navigationController.navigationBar.frame.size.height - CATEGORY_BAR_HEIGHT);
